@@ -1,0 +1,33 @@
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv(r'C:\Users\teren\Desktop\datasets\layoffs.csv')
+
+list(df.columns
+
+#removing outliers in company, location and industry columns
+df2 = df.groupby(['company', 'location', 'industry']).filter(lambda x : len(x) > 1)
+df2 = df2.reset_index()
+df2 = df2.drop(columns = 'index')
+df2 = df2.fillna(0)
+
+# adding region column and inputting regions for each country
+df2['Region'] = ""
+
+north = ['United States', 'Canada', 'Mexico']
+asia_pacific = ['India', 'Singapore', 'Australia', 'Indonesia', 'China', 'Vietnam', 'Pakistan']
+south = ['Brazil']
+europe = ['Germany', 'Israel', 'United Kingdom', 'Sweden', 'Austria', 'Estonia', 'Norway']
+africa = ['Seychelles', 'Kenya']
+
+for i in range(len(df2)):
+    if df2.loc[i, 'country'] in north:
+        df2.loc[i, 'Region'] = 'North America'
+    elif df2.loc[i, 'country'] in asia_pacific:
+        df2.loc[i, 'Region'] = 'Asia/Pacific'
+    elif df2.loc[i, 'country'] in south:
+        df2.loc[i, 'Region'] = 'South America'
+    elif df2.loc[i, 'country'] in europe:
+        df2.loc[i, 'Region'] = 'Europe'
+    else:
+        df2.loc[i, 'Region'] = 'Africa'
