@@ -31,3 +31,16 @@ for i in range(len(df2)):
         df2.loc[i, 'Region'] = 'Europe'
     else:
         df2.loc[i, 'Region'] = 'Africa'
+
+
+
+
+
+
+
+
+
+
+
+
+
