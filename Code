@@ -33,9 +33,7 @@ for i in range(len(df2)):
         df2.loc[i, 'Region'] = 'Africa'
 
 #identifying which columns and industries are in IPO stage
-for i in range(len(df2)):
-    if df2.loc[i, 'stage'] == 'IPO':
-        print(df2.loc[i, ['company', 'industry']]) 
+df3 = df2[df2['stage'] == 'IPO']
 
 
 
