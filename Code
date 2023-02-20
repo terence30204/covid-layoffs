@@ -52,7 +52,13 @@ df4 = df3[df3['percentage_laid_off'] > 0.10]
 df4 = df4.reset_index()
 df4 = df4.drop(columns = 'index')
 
+# determining which companies have over 500 employees laid off
+df5 = df4[df4['total_laid_off'] >= 500]
 
+# dropping all rows where location isn't in SF Bay Area since most lay offs in df5 is in SF Bay Area
+df5 = df5[df5['location'] == 'SF Bay Area']
+df5 = df5.reset_index()
+df5 = df5.drop(columns = 'index')
 
 
 
