@@ -47,7 +47,10 @@ plt.plot('date', 'percentage_laid_off', data = df3, color = 'red', linewidth = 2
 plt.legend()
 plt.show()
 
-
+# removing all companies with less than 10% of employees laid off
+df4 = df3[df3['percentage_laid_off'] > 0.10]
+df4 = df4.reset_index()
+df4 = df4.drop(columns = 'index')
 
 
 
