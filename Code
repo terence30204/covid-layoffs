@@ -60,6 +60,16 @@ df5 = df5[df5['location'] == 'SF Bay Area']
 df5 = df5.reset_index()
 df5 = df5.drop(columns = 'index')
 
+df5 = df4[df4['total_laid_off'] >= 500]
+
+# dropping all rows where location isn't in SF Bay Area since most lay offs in df5 is in SF Bay Area
+df5 = df5[df5['location'] == 'SF Bay Area']
+df5 = df5.reset_index()
+df5 = df5.drop(columns = 'index')
+
+# finding the dates where uber and lyft had lay offs
+df6 = df5[df5.loc[:, 'industry'] == 'Transportation']
+print(df6.loc[:, ['company', 'date']])
 
 
 
