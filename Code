@@ -37,7 +37,7 @@ df3 = df2[df2['stage'] == 'IPO']
 df3 = df3[df3['industry'].isin(['Transportation', 'Retail', 'Finance', 'Consumer'])]
 
 
-# only keeping USA because value count for other IPO countries is low
+# only keeping USA because value counts for other IPO countries is low
 df3 = df3[df3['country'] == 'United States']
 
 # line_graph(x_axis, y_axis1, y_axis2)
