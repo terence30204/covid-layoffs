@@ -81,3 +81,4 @@ print(df6.loc[:, ['company', 'date']])
 
 
 
+
